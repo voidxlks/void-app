@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Void App</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    background: #0a0a0a;
+    color: white;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background: #111;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+    color: purple;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #1a1a1a;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.sidebar button:hover {
+    background: purple;
+}
+
+/* Main content */
+.main {
+    flex: 1;
+    padding: 30px;
+}
+
+.card {
+    background: #151515;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.action-btn {
+    padding: 12px 20px;
+    background: purple;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.action-btn:hover {
+    opacity: 0.8;
+}
+
+/* Output */
+#output {
+    margin-top: 15px;
+    padding: 10px;
+    background: black;
+    border-radius: 6px;
+    min-height: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>⚡ Void App</h2>
+    <button onclick="showHome()">Home</button>
+    <button onclick="showTools()">Tools</button>
+    <button onclick="showAbout()">About</button>
+</div>
+
+<div class="main" id="mainContent">
+    <h1>Welcome to Void App</h1>
+
+    <div class="card">
+        <h3>Quick Action</h3>
+        <button class="action-btn" onclick="runAction()">Run Void Action</button>
+        <div id="output"></div>
+    </div>
+</div>
+
+<script>
+function showHome() {
+    document.getElementById("mainContent").innerHTML = `
+        <h1>Welcome to Void App</h1>
+        <div class="card">
+            <h3>Quick Action</h3>
+            <button class="action-btn" onclick="runAction()">Run Void Action</button>
+            <div id="output"></div>
+        </div>
+    `;
+}
+
+function showTools() {
+    document.getElementById("mainContent").innerHTML = `
+        <h1>Tools</h1>
+        <div class="card">
+            <p>🔘 Button Generator (coming soon)</p>
+            <p>🌌 Spot Creator (coming soon)</p>
+            <p>🔐 Password Tool (coming soon)</p>
+        </div>
+    `;
+}
+
+function showAbout() {
+    document.getElementById("mainContent").innerHTML = `
+        <h1>About</h1>
+        <div class="card">
+            <p>Void App is a custom tool hub created by Void.</p>
+            <p>Built for experiments, tools, and chaos ⚡</p>
+        </div>
+    `;
+}
+
+function runAction() {
+    const messages = [
+        "⚡ Initializing Void...",
+        "🟣 Accessing system...",
+        "🚀 Action complete.",
+        "👾 Void energy increased."
+    ];
+
+    const random = messages[Math.floor(Math.random() * messages.length)];
+    document.getElementById("output").textContent = random;
+}
+</script>
+
+</body>
+</html>
